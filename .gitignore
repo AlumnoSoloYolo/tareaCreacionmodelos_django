@@ -11,7 +11,7 @@ venv/
 db.sqlite3
 
 # Static folder at project root
-/static/
+# /static/
 
 # macOS
 ._*
@@ -29,3 +29,6 @@ $RECYCLE.BIN/
 .vscode/
 .history/
 *.code-workspace
+
+# fixtures
+biblioteca/fixtures/datos.json
