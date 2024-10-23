@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comentarios por Palabra Clave</title>
+</head>
+
+<body>
+    <h1>Comentarios que contienen la palabra "{{ palabra_clave }}" en el año {{ anio }}</h1>
+    <ul>
+        {% for comentario in comentarios %}
+        <li>
+            <p>{{ comentario.contenido }}</p>
+            <p>Autor: {{ comentario.autor.nombre }}</p>
+            <p>Fecha: {{ comentario.fecha_comentario }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'index' %}">Volver al inicio</a>
+</body>
+
+</html>

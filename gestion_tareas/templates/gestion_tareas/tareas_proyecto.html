@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tareas del Proyecto: {{ proyecto.nombre }}</title>
+
+</head>
+
+<body>
+    <header>
+        <h1>Proyecto: {{ proyecto.nombre }}</h1>
+        <p>{{ proyecto.descripcion }}</p>
+        <p>Duración Estimada: {{ proyecto.duracion_estimada }} días</p>
+        <p>Fecha de Inicio: {{ proyecto.fecha_inicio }}</p>
+        <p>Fecha de Fin: {{ proyecto.fecha_fin }}</p>
+    </header>
+
+    <nav>
+        <a href="{% url 'lista_proyectos' %}">Ver todos los proyectos</a>
+        <a href="{% url 'index' %}">Inicio</a>
+    </nav>
+
+    <section>
+        <h2>Tareas Asociadas</h2>
+        <ul>
+            {% for tarea in tareas %}
+            <li>
+                <h3>{{ tarea.titulo }}</h3>
+                <p>{{ tarea.descripcion }}</p>
+                <p>Prioridad: {{ tarea.prioridad }}</p>
+                <p>Estado: {{ tarea.estado }}</p>
+                <p>Fecha de Creación: {{ tarea.fecha_creacion }}</p>
+                <p>Hora de Vencimiento: {{ tarea.hora_vencimiento }}</p>
+                <p>
+
+                </p>
+            </li>
+            {% empty %}
+            <li>No hay tareas disponibles para este proyecto.</li>
+            {% endfor %}
+        </ul>
+    </section>
+</body>
+
+</html>

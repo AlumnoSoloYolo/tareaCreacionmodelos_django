@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Proyectos</title>
+</head>
+
+<body>
+    <h1>Lista de Proyectos</h1>
+    <ul>
+        {% for proyecto in proyectos %}
+
+
+
+
+        <li>
+            <h3>{{ proyecto.nombre }}</h3>
+            <p>{{ proyecto.descripcion }}</p>
+            <p> <a href="{% url 'lista_tareas_proyecto' proyecto.id %}">Ver tareas asignadas</a> </p>
+        </li>
+        <br>
+
+
+
+
+
+        {% empty %}
+        <li>No hay proyectos disponibles.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'index' %}">Volver a inicio</a>
+</body>
+
+</html>
