@@ -8,29 +8,33 @@
 </head>
 
 <body>
-    <h1>Lista de Proyectos</h1>
+    <h1>Lista de proyectos</h1>
+
     <ul>
         {% for proyecto in proyectos %}
-
-
-
-
         <li>
-            <h3>{{ proyecto.nombre }}</h3>
-            <p>{{ proyecto.descripcion }}</p>
-            <p> <a href="{% url 'lista_tareas_proyecto' proyecto.id %}">Ver tareas asignadas</a> </p>
+            <h3>{{proyecto.nombre}}</h3>
+            <p>Descripción: {{proyecto.descripcion}}</p>
+            <p>fecha de inicio: {{proyecto.fecha_inicio}}</p>
+            <p>fecha de finalización: {{proyecto.fecha_fin}}</p>
+            <p>Creador: {{proyecto.creador}}
+            <p>Usuarios asignados:</p>
+            {% for usuario in proyecto.usuarios_asignados.all %}
+            <p> {{usuario.nombre}} </p>
+            <a href="{% url 'lista_tareas_proyecto' proyecto.id %}">Tareas del proyecto</a>
+
+            {% endfor %} 
+            
+            <a href="{% url 'index' %}">Inicio</a>
         </li>
-        <br>
-
-
-
-
-
         {% empty %}
-        <li>No hay proyectos disponibles.</li>
+        <li>No hay proyectos disponibles</li>
         {% endfor %}
+
+        
     </ul>
-    <a href="{% url 'index' %}">Volver a inicio</a>
+
+    
 </body>
 
 </html>

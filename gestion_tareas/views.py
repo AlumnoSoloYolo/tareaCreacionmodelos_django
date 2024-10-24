@@ -3,13 +3,49 @@ from .models import *
 
 # Create your views here.
 
+# Desde una página de Inicio debe poder acceder a todas las URLs que se indiquen.
 def index(request):
     return render(request, 'gestion_tareas/index.html')
 
-
+# Crea una URL que muestre una lista de todos los proyectos de la aplicación con 
+# sus datos correspondientes.
 
 def lista_proyectos(request):
-    proyectos = Proyecto.objects.select_related().prefetch_related();
+    proyectos = Proyecto.objects.select_related("creador").prefetch_related('usuarios_asignados')
+    return render(request, 'gestion_tareas/proyectos.html', {'proyectos': proyectos})
+
+# Crear una URL que muestre todas las tareas que están asociadas a un proyecto, 
+# ordenadas por fecha de creación descendente.
+def lista_tareas_proyecto(request, proyecto_id):
+    proyecto = Proyecto.objects.get(id= proyecto_id)
+    tareas = Tarea.objects.select_related('proyecto')
+    tareas = tareas.filter(id=proyecto_id).order_by('-fecha_creacion')
+    return render(request, 'gestion_tareas/tareas_proyecto.html', {'tareas':tareas,'proyecto':proyecto})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""def lista_proyectos(request):
+    proyectos = Proyecto.objects.select_related().prefetch_related()
     return render(request, 'gestion_tareas/proyectos.html', {'proyectos': proyectos})
 
 
@@ -18,6 +54,7 @@ def lista_tareas_proyecto(request, proyecto_id):
     proyecto = get_object_or_404(Proyecto.objects.prefetch_related('tareas__comentarios'), id=proyecto_id)  # Pre-cargar tareas y comentarios
     tareas = proyecto.tareas.all().order_by('-fecha_creacion')
     return render(request, 'gestion_tareas/tareas_proyecto.html', {'proyecto': proyecto, 'tareas': tareas})
+
 
 # Lista de usuarios asignados a una tarea
 def usuarios_asignados_tarea(request, tarea_id):
@@ -69,4 +106,4 @@ def etiquetas_de_proyecto(request, proyecto_id):
 def usuarios_sin_tarea(request):
     usuarios = Usuario.objects.exclude(tareas_creadas__isnull=False).distinct().prefetch_related('tareas_creadas')  # Pre-cargar tareas
     return render(request, 'gestion_tareas/usuarios_sin_tarea.html', {'usuarios': usuarios})
-
+"""
