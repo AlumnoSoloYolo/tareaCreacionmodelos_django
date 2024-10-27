@@ -33,9 +33,7 @@
                 <p>Estado: {{ tarea.estado }}</p>
                 <p>Fecha de Creación: {{ tarea.fecha_creacion }}</p>
                 <p>Hora de Vencimiento: {{ tarea.hora_vencimiento }}</p>
-                <p>
-
-                </p>
+                <a href="{% url 'lista_usuarios_asignados' tarea.id %}">usuarios asignados</a>
             </li>
             {% empty %}
             <li>No hay tareas disponibles para este proyecto.</li>

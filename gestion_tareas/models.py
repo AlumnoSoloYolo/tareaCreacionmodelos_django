@@ -39,9 +39,9 @@ class Etiqueta(models.Model):
 # Modelo Tarea
 class Tarea(models.Model):
     class Estado(models.TextChoices):
-        PENDIENTE = 'PE', 'Pendiente'
-        PROGRESO = 'PR', 'Progreso'
-        COMPLETADA = 'CO', 'Completada'
+        PENDIENTE = 'Pendiente'
+        PROGRESO = 'Progreso'
+        COMPLETADA = 'Completada'
 
     titulo = models.CharField(max_length=255)
     descripcion = models.TextField()
@@ -54,6 +54,12 @@ class Tarea(models.Model):
     creador = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='tareas_creadas')
     proyecto = models.ForeignKey(Proyecto, on_delete=models.CASCADE, related_name='tareas')
     etiquetas_asociadas = models.ManyToManyField(Etiqueta, related_name='tareas')
+    usuarios_asignados = models.ManyToManyField(
+        Usuario,
+        through='AsignacionTareas',
+        related_name='tareas_asignadas',
+        blank=True
+    )
 
     def __str__(self):
         return self.titulo

@@ -1,0 +1,23 @@
+<!-- tareas_por_observacion.html -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tareas con Observación</title>
+</head>
+
+<body>
+    <h1>Tareas con Observaciones que contienen: "{{ texto_observacion }}"</h1>
+    {% if tareas %}
+    <ul>
+        {% for tarea in tareas %}
+        <li>{{ tarea.titulo }} - {{ tarea.descripcion }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No se encontraron tareas con las observaciones especificadas.</p>
+    {% endif %}
+</body>
+
+</html>

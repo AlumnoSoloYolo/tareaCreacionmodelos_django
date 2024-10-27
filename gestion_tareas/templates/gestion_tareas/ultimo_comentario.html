@@ -3,21 +3,18 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Último Comentario en Tareas</title>
+    <title>Último Usuario que Comentó</title>
 </head>
 
 <body>
-    <h1>Último Comentario de las Tareas del Proyecto: {{ proyecto.nombre }}</h1>
-    <ul>
-        {% for tarea, comentario in ultimo_comentarios.items %}
-        <li>
-            <h3>Tarea: {{ tarea.titulo }}</h3>
-            <p>Último comentario: {{ comentario.contenido }}</p>
-            <p>Autor: {{ comentario.autor.nombre }} ({{ comentario.fecha_comentario }})</p>
-        </li>
-        {% endfor %}
-    </ul>
+    <h1>Último Usuario que Comentó en una Tarea del Proyecto</h1>
+
+    {% if ultimo_comentario_info %}
+    <p>Último usuario que comentó: {{ ultimo_comentario_info.0.autor__nombre }}</p>
+    <p>En la tarea: {{ ultimo_comentario_info.0.tarea__titulo }}</p>
+    {% else %}
+    <p>No hay comentarios en ninguna tarea de este proyecto.</p>
+    {% endif %}
     <a href="{% url 'lista_proyectos' %}">Volver a la lista de proyectos</a>
 </body>
 

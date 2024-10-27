@@ -9,11 +9,17 @@
 
 <body>
     <h1>Etiquetas del Proyecto: {{ proyecto.nombre }}</h1>
+
+    {% if etiquetas %}
     <ul>
         {% for etiqueta in etiquetas %}
         <li>{{ etiqueta.nombre }}</li>
         {% endfor %}
     </ul>
+    {% else %}
+    <p>No hay etiquetas asociadas a este proyecto.</p>
+    {% endif %}
+
     <a href="{% url 'lista_proyectos' %}">Volver a la lista de proyectos</a>
 </body>
 

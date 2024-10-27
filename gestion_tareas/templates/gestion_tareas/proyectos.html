@@ -23,18 +23,20 @@
             <p> {{usuario.nombre}} </p>
             <a href="{% url 'lista_tareas_proyecto' proyecto.id %}">Tareas del proyecto</a>
 
-            {% endfor %} 
-            
-            <a href="{% url 'index' %}">Inicio</a>
+            {% endfor %}
+
+
         </li>
         {% empty %}
         <li>No hay proyectos disponibles</li>
         {% endfor %}
 
-        
+        <a href="{% url 'index' %}">Inicio</a>
+
+
     </ul>
 
-    
+
 </body>
 
 </html>

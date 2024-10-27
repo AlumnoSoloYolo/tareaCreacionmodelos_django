@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios Asignados a la Tarea</title>
+</head>
+
+<body>
+    <h1>Usuarios No Asignados a la Tarea: {{ tarea.titulo }}</h1>
+
+    {% if usuarios_no_asignados %}
+    <ul>
+        {% for usuario in usuarios_no_asignados %}
+        <li>{{ usuario.nombre }} ({{ usuario.email }})</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No hay usuarios disponibles para asignar a esta tarea.</p>
+    {% endif %}
+    <a href="{% url 'lista_tareas_proyecto' tarea.id %}">Volver a las tareas del proyecto</a>
+</body>
+
+</html>

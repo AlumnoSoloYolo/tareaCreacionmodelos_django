@@ -4,16 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuarios Asignados a la Tarea</title>
+    <title>Usuarios Asignados - Tarea: {{ tarea.titulo }}</title>
 </head>
 
 <body>
-    <h1>Usuarios asignados a la tarea: {{ tarea.titulo }}</h1>
+    <h1>Usuarios Asignados a la Tarea: {{ tarea.titulo }}</h1>
+
     <ul>
         {% for usuario in usuarios_asignados %}
-        <li>{{ usuario.nombre }} - {{ usuario.email }}</li>
+        <li>{{ usuario.nombre }} ({{ usuario.email }})</li>
+        {% empty %}
+        <li>No hay usuarios asignados a esta tarea.</li>
         {% endfor %}
     </ul>
+
     <a href="{% url 'lista_tareas_proyecto' tarea.proyecto.id %}">Volver a las tareas del proyecto</a>
 </body>
 
