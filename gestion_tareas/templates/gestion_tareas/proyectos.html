@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "gestion_tareas/principal.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Proyectos</title>
-</head>
 
-<body>
+{% block content %}
+
+<div class="proyectos">
     <h1>Lista de proyectos</h1>
 
     <ul>
@@ -17,13 +13,17 @@
             <p>Descripción: {{proyecto.descripcion}}</p>
             <p>fecha de inicio: {{proyecto.fecha_inicio}}</p>
             <p>fecha de finalización: {{proyecto.fecha_fin}}</p>
-            <p>Creador: {{proyecto.creador}}
-            <p>Usuarios asignados:</p>
-            {% for usuario in proyecto.usuarios_asignados.all %}
-            <p> {{usuario.nombre}} </p>
             <a href="{% url 'lista_tareas_proyecto' proyecto.id %}">Tareas del proyecto</a>
 
-            {% endfor %}
+            <div class="usuarios">
+                <p>Creador: {{proyecto.creador}}
+                <p>Usuarios asignados:</p>
+                {% for usuario in proyecto.usuarios_asignados.all %}
+                <p> {{usuario.nombre}} </p>
+                {% endfor %}
+
+            </div>
+
 
 
         </li>
@@ -31,12 +31,13 @@
         <li>No hay proyectos disponibles</li>
         {% endfor %}
 
-        <a href="{% url 'index' %}">Inicio</a>
+
 
 
     </ul>
 
+    <a href="{% url 'index' %}">Inicio</a>
 
-</body>
+</div>
 
-</html>
+{% endblock %}

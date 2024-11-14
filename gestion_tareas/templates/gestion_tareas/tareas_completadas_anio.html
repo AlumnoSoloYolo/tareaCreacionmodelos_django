@@ -1,22 +1,17 @@
-<!DOCTYPE html>
-<html lang="es">
+{% extends "gestion_tareas/principal.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Tareas Completadas entre {{ anio_inicio }} y {{ anio_fin }}</title>
-</head>
 
-<body>
-    <h1>Tareas Completadas entre {{ anio_inicio }} y {{ anio_fin }}</h1>
-    {% if tareas %}
-    <ul>
-        {% for tarea in tareas %}
-        <li>{{ tarea.titulo }} - {{ tarea.descripcion }} (Fecha: {{ tarea.fecha_creacion }})</li>
-        {% endfor %}
-    </ul>
-    {% else %}
-    <p>No se encontraron tareas completadas en el período especificado.</p>
-    {% endif %}
-</body>
+{% block content %}
 
-</html>
+<h1>Tareas Completadas entre {{ anio_inicio }} y {{ anio_fin }}</h1>
+{% if tareas %}
+<ul>
+    {% for tarea in tareas %}
+    <li>{{ tarea.titulo }} - {{ tarea.descripcion }} (Fecha: {{ tarea.fecha_creacion }})</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No se encontraron tareas completadas en el período especificado.</p>
+{% endif %}
+
+{% endblock %}

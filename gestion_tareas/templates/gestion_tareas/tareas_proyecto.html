@@ -1,26 +1,18 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tareas del Proyecto: {{ proyecto.nombre }}</title>
-
-</head>
-
-<body>
-    <header>
+{% extends "gestion_tareas/principal.html" %}
+{% block content%}
+<div class="tareas-proyecto">
+    <div>
         <h1>Proyecto: {{ proyecto.nombre }}</h1>
         <p>{{ proyecto.descripcion }}</p>
         <p>Duración Estimada: {{ proyecto.duracion_estimada }} días</p>
         <p>Fecha de Inicio: {{ proyecto.fecha_inicio }}</p>
         <p>Fecha de Fin: {{ proyecto.fecha_fin }}</p>
-    </header>
+    </div>
 
-    <nav>
-        <a href="{% url 'lista_proyectos' %}">Ver todos los proyectos</a>
-        <a href="{% url 'index' %}">Inicio</a>
-    </nav>
+    <ul>
+        <li><a href="{% url 'lista_proyectos' %}">Ver todos los proyectos</a></li>
+        <li><a href="{% url 'index' %}">Inicio</a></li>
+    </ul>
 
     <section>
         <h2>Tareas Asociadas</h2>
@@ -40,6 +32,5 @@
             {% endfor %}
         </ul>
     </section>
-</body>
-
-</html>
+</div>
+{% endblock %}

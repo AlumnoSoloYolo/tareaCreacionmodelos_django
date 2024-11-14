@@ -23,7 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-3)u)8(z$*vmzq3-%-_=inbu*hk@ns)v%z_trn&f6(5!hdk5l@('
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
+
+
+
 
 ALLOWED_HOSTS = [
  
@@ -31,6 +34,10 @@ ALLOWED_HOSTS = [
     '127.0.0.1',  
   
 ]
+
+NTERNAL_IPS = ["127.0.0.1"]
+
+
 
 
 # Application definition
@@ -42,8 +49,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'debug_toolbar',
     'gestion_tareas',
     'django_seed',
+    
 ]
 
 MIDDLEWARE = [
@@ -54,6 +63,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'mysyte.urls'
@@ -61,7 +71,9 @@ ROOT_URLCONF = 'mysyte.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            BASE_DIR / "templates",
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
