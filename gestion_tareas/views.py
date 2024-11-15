@@ -31,7 +31,7 @@ def lista_usuarios_asignados_tarea(request, tarea_id):
     # Obtiene los usuarios asignados a la tarea a través de la relación ManyToMany
     usuarios_asignados = tarea.usuarios_asignados.all()
 
-    # Renderiza la plantilla pasando la tarea y los usuarios asignados
+           
     return render(request, 'gestion_tareas/usuarios_asignados.html', {
         'tarea': tarea,
         'usuarios_asignados': usuarios_asignados
@@ -88,7 +88,7 @@ def etiquetas_del_proyecto(request, proyecto_id):
     proyecto = Proyecto.objects.get(id=proyecto_id)
 
 
-    etiquetas = Etiqueta.objects.filter(tareas__proyecto=proyecto).distinct()
+    etiquetas = Etiqueta.objects.filter(tareas__proyecto=proyecto).distinct().all()
 
     return render(request, 'gestion_tareas/etiquetas_proyecto.html', {
         'proyecto': proyecto, 

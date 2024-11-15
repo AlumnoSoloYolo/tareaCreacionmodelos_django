@@ -9,15 +9,14 @@
 {% if comentarios %}
 <ul>
     {% for comentario in comentarios %}
-    <li>{{ comentario.fecha_comentario }} - {{ comentario.contenido }}</li>
+     {% include 'gestion_tareas/elementos_listas.html' %}
     {% endfor %}
 </ul>
 {% else %}
 <p>No se encontraron comentarios que cumplan con los criterios especificados.</p>
 {% endif %}
+
 <a href="{% url 'index' %}">Volver al inicio</a>
-
-
 
 
 {% endblock %}

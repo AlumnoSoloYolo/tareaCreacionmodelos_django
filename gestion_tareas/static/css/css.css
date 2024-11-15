@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body{
+    background-color: whitesmoke;
+}
+
 a{
     text-decoration: none;
 }
@@ -28,7 +32,8 @@ nav ul{
     display: flex;
     flex-direction: row;
     justify-content: end;
-    margin-left: 50px;
+    margin-left: 30px;
+    
    
 }
 
@@ -39,10 +44,14 @@ nav img{
     margin: 10px;
 }
 
+nav ul li {
+    padding: 10px;
+}
+
 nav ul li a {
     display: flex;
     height: 80px;
-    width: 150px;
+    width: 100px;
     justify-content: center;
     align-items: center;
     color: whitesmoke;
@@ -97,6 +106,8 @@ footer {
     background-color: aliceblue;
     border-radius: 40px;
     padding: 50px;
+    border: 2px solid black;
+    box-shadow: 4px 3px 0 2px black;
 }
 
 .proyectos ul li .usuarios{

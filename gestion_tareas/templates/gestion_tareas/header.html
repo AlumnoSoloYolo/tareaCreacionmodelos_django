@@ -9,8 +9,7 @@
         <li><a href="{% url 'tareas_completadas_por_anio' anio_inicio=2020 anio_fin=2022 %}">Tareas Completadas</a></li>
         <li><a href="{% url 'ultimo_usuario_comentario' proyecto_id=1 %}">Último Comentario</a>
         </li>
-        <li><a href="{% url 'comentarios_por_palabra_y_ano' tarea_id=1 palabra_inicial='ejemplo' anio=2024 %}">Comentarios
-                de Tarea</a></li>
+        <li><a href="{% url 'comentarios_por_palabra_y_ano' tarea_id=1 palabra_inicial='El' anio=2024 %}">Comentarios Tarea</a></li>
         <li><a href="{% url 'etiquetas_del_proyecto' proyecto_id=1 %}">Etiquetas</a></li>
         <li><a href="{% url 'usuarios_no_asignados_a_tarea' tarea_id=1 %}">No Asignados</a></li>
 
