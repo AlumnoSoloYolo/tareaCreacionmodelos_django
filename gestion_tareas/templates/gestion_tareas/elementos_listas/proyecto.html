@@ -1,0 +1,32 @@
+<li>
+    <h3>{{ proyecto.nombre|title }}</h3>
+    <p>Descripción: {{ proyecto.descripcion|truncatechars:150 }}</p>
+    <p>Fecha de inicio: {{ proyecto.fecha_inicio|date:"d-m-Y" }}</p>
+    <p>Fecha de finalización:
+        {% if proyecto.fecha_fin %}
+        {{ proyecto.fecha_fin|date:"d-m-Y" }}
+        {% else %}
+        <span>No especificada</span>
+        {% endif %}
+    </p>
+    <a href="{% url 'lista_tareas_proyecto' proyecto.id %}">Tareas del proyecto</a>
+
+    <div class="usuarios">
+        <p>Creador: {{ proyecto.creador|default:"Sin creador especificado" }}</p>
+        <p>Usuarios asignados:</p>
+
+
+        {% if proyecto.usuarios_asignados.all|length > 0 %}
+        {% for usuario in proyecto.usuarios_asignados.all %}
+        <p>{{ usuario.nombre|capfirst }}</p>
+        {% endfor %}
+        {% else %}
+        <p>No hay usuarios asignados.</p>
+        {% endif %}
+
+    </div>
+
+    {% if proyecto.creador != "admin" %}
+    <p>Este proyecto no fue creado por el administrador.</p>
+    {% endif %}
+</li>

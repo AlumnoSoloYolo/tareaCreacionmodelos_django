@@ -1,0 +1,8 @@
+<li>{{ etiqueta.nombre | upper }}</li>
+
+<li>
+
+    {% if etiqueta.nombre|upper == "URGENTE" %}
+    <strong style="color: red;">¡Etiqueta marcada como urgente!</strong>
+    {% endif %}
+</li>

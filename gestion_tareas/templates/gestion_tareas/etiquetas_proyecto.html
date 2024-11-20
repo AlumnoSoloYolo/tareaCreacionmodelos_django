@@ -8,7 +8,7 @@
 {% if etiquetas %}
 <ul>
     {% for etiqueta in etiquetas %}
-    <li>{{ etiqueta.nombre }}</li>
+    {% include 'gestion_tareas/elementos_listas/etiqueta.html' %}
     {% endfor %}
 </ul>
 {% else %}

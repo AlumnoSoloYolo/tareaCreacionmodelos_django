@@ -3,9 +3,9 @@
 {% block content %}
 <h1>Tareas con Observaciones que contienen: "{{ texto_observacion }}"</h1>
 {% if tareas %}
-<ul>
+<ul class="tareas">
     {% for tarea in tareas %}
-    <li>{{ tarea.titulo }} - {{ tarea.descripcion }}</li>
+    {% include 'gestion_tareas/elementos_listas/tarea.html' %}
     {% endfor %}
 </ul>
 {% else %}

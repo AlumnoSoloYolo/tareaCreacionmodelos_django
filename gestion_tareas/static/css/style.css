@@ -17,7 +17,7 @@ ul{
 }
 
 main{
-    padding: 30px;
+     padding: 30px;
 }
 
 nav{
@@ -27,6 +27,31 @@ background-color: #333;
 align-items: center;
 
 }
+
+.hero{
+   
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 300px;
+    width: 100%;
+    border: 15px solid #333;
+
+
+}
+
+.hero img{
+    /* class="absolute inset-0 w-full h-full object-cover z-0 */
+    position: absolute;
+    display: block;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
 
 nav ul{
     display: flex;
@@ -80,9 +105,6 @@ nav ul li a:active {
 
 
 footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
     width: 100%;
     background-color: #333;   
     color: #fff;              

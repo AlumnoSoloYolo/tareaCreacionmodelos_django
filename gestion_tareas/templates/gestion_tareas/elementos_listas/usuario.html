@@ -1,0 +1,8 @@
+{% if usuario.nombre != "admin" or usuario.email != "admin@admin.com" %}
+<li>{{ usuario.nombre }} ({{ usuario.email }}) Fecha de registro: {{usuario.fecha_registro | date:"d-m-Y H:i"}}. NO
+    ADMIN
+</li>
+{% else %}
+<li>{{ usuario.nombre }} ({{ usuario.email }}) Fecha de registro: {{usuario.fecha_registro}}. ADMIN
+</li>
+{% endif %}

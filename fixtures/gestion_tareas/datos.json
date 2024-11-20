@@ -617,7 +617,7 @@
             "titulo": "Desarrollar módulo de notificaciones",
             "descripcion": "Crear el sistema de notificaciones para alertas de tareas y eventos.",
             "prioridad": 2,
-            "estado": "En progreso",
+            "estado": "Progreso",
             "completada": false,
             "fecha_creacion": "2024-11-14",
             "hora_vencimiento": "2024-11-22T18:00:00Z",
@@ -659,7 +659,7 @@
             "titulo": "Revisar diseño del sitio",
             "descripcion": "Evaluar y aprobar los cambios en el diseño de la página principal.",
             "prioridad": 3,
-            "estado": "Finalizado",
+            "estado": "Completada",
             "completada": true,
             "fecha_creacion": "2024-11-14",
             "hora_vencimiento": "2024-11-30T18:00:00Z",
@@ -711,6 +711,16 @@
             "fecha_comentario": "2024-11-14T17:30:00Z",
             "autor": 4,
             "tarea": 4
+        }
+    },
+    {
+        "model": "gestion_tareas.asignacionTareas",
+        "pk": 1,
+        "fields": {
+            "tarea": 1,
+            "usuario": 1,
+            "observaciones": "Es un buen ejemplo",
+            "fecha_asignacion": "2024-11-14T17:00:00Z"
         }
     }
 ]

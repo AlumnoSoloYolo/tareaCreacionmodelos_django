@@ -1,1 +1,7 @@
-<li>{{ comentario.fecha_comentario }} - {{ comentario.contenido }}</li>
+<li>
+    {{ comentario.fecha_comentario | date:"d-m-Y-h H:i" }} - {{ comentario.contenido | default:"no hay contenido" }}
+    <p>
+        <strong>Por:
+            {{comentario.autor| upper}}</strong>
+    </p>
+</li>

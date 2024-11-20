@@ -5,7 +5,7 @@
 {% if usuarios_no_asignados %}
 <ul>
     {% for usuario in usuarios_no_asignados %}
-    <li>{{ usuario.nombre }} ({{ usuario.email }})</li>
+    {% include 'gestion_tareas/elementos_listas/usuario.html' %}
     {% endfor %}
 </ul>
 {% else %}

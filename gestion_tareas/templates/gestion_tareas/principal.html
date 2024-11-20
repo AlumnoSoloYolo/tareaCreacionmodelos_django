@@ -5,7 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Gestión de Tareas{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/css.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
 </head>
 
 <body>
@@ -13,7 +14,17 @@
         {% include "gestion_tareas/header.html" %}
     </header>
 
+    <section class="hero">
+
+        <img src="{% static 'images/imagen1.png' %}" alt="imagen hero">
+
+
+    </section>
+
+
     <main>
+
+
         {% block content %}
 
         {% endblock %}
@@ -22,6 +33,12 @@
     <footer>
         {% include "gestion_tareas/footer.html" %}
     </footer>
+
+
+
+
+
+    <script src="{% static 'js/carousel.js' %}"></script>
 
 </body>
 

@@ -6,7 +6,7 @@
 
 <ul>
     {% for usuario in usuarios_asignados %}
-    <li>{{ usuario.nombre }} ({{ usuario.email }})</li>
+    {% include 'gestion_tareas/elementos_listas/usuario.html' %}
     {% empty %}
     <li>No hay usuarios asignados a esta tarea.</li>
     {% endfor %}

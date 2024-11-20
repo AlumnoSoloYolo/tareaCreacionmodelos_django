@@ -5,9 +5,9 @@
 
 <h1>Tareas Completadas entre {{ anio_inicio }} y {{ anio_fin }}</h1>
 {% if tareas %}
-<ul>
+<ul class="tareas">
     {% for tarea in tareas %}
-    <li>{{ tarea.titulo }} - {{ tarea.descripcion }} (Fecha: {{ tarea.fecha_creacion }})</li>
+    {% include 'gestion_tareas/elementos_listas/tarea.html' %}
     {% endfor %}
 </ul>
 {% else %}

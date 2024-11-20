@@ -1,0 +1,20 @@
+<li>
+    <h3>{{ tarea.titulo | title }}</h3>
+    <p>{{ tarea.descripcion | truncatechars:100 }}</p>
+    <p>Prioridad: {{ tarea.prioridad }}</p>
+    <p>Estado: {{ tarea.estado }}</p>
+
+    <p>Fecha de Creación:
+        {% if tarea.fecha_creacion and tarea.fecha_creacion|date:"d-m-Y" > "01-01-2024" %}
+        <span style="color: green;">Fecha después del 01-01-2024 </span>
+    <p>La fecha es: {{ tarea.fecha_creacion | date:"d-m-Y" }}</p>
+
+    {% else %}
+    {{ tarea.fecha_creacion | date:"d-m-Y" }}
+    {% endif %}
+    </p>
+
+    <p>Hora de Vencimiento: {{ tarea.hora_vencimiento | date:"H:i A" }}</p>
+
+    <a href="{% url 'lista_usuarios_asignados' tarea.id %}">usuarios asignados</a>
+</li>

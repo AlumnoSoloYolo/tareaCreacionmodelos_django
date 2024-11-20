@@ -6,15 +6,15 @@
 
 <h1>Comentarios que empiezan con "{{ palabra_inicial }}" del año {{ anio }}</h1>
 
-{% if comentarios %}
+{% for comentario in comentarios %}
 <ul>
-    {% for comentario in comentarios %}
-     {% include 'gestion_tareas/elementos_listas.html' %}
-    {% endfor %}
+
+    {% include 'gestion_tareas/elementos_listas/comentario.html' %}
+
 </ul>
-{% else %}
+{% empty %}
 <p>No se encontraron comentarios que cumplan con los criterios especificados.</p>
-{% endif %}
+{% endfor %}
 
 <a href="{% url 'index' %}">Volver al inicio</a>
 
